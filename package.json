@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "@o1labs/snarkyjs": "file:../snarkyjs"
+    "@o1labs/snarkyjs": "0.1.8"
   }
 }

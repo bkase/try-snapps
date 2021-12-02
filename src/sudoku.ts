@@ -1,5 +1,4 @@
 import {
-  matrixProp,
   CircuitValue,
   Field,
   shutdown,
@@ -13,11 +12,23 @@ import {
 import { generateRandomSudoku } from './generate-sudoku.js';
 
 class Sudoku extends CircuitValue {
-  @matrixProp(Field, 9, 9) value: Field[][];
+  value: Field[][];
 
   constructor(value: number[][]) {
     super();
     this.value = value.map((row) => row.map((n) => new Field(n)));
+  }
+
+  toFieldElements() {
+    return this.value.flat()
+  }
+
+  ofFieldElements(fields: Field[]) {
+    let value = new Array(9);
+    fields.forEach((x, i) => {
+      value[i / 9] = (this.value[i/9] ?? []).concat([x]);
+    });
+    return new Sudoku(value);
   }
 }
 
