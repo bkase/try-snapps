@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "@o1labs/snarkyjs": "0.1.8"
+    "@o1labs/snarkyjs": "0.1.9"
   }
 }
